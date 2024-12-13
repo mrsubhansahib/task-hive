@@ -8,13 +8,13 @@
                     <div class="col-md-12">
                         <div class="box">
                             <div class="box-header d-flex justify-content-between">
-                                <a href="index.html">
-                                    <img src="./images/logo.png" alt="">
+                                <a href="{{url('/home')}}">
+                                    <img src="images/logo.png" alt="">
                                 </a>
 
                                 <div class="action-reg">
                                     <h4 class="fs-30">Register</h4>
-                                    <a href="new-account.html">Create new account</a>
+                                    <a href="{{url('/account')}}">Create new account</a>
                                 </div>
 
                             </div>
@@ -22,7 +22,8 @@
                             <div class="box-body">
                                 <div class="auth-content my-auto">
 
-                                    <form class="mt-6 pt-2" action="index.html">
+                                    <form class="mt-6 pt-2" action="" method="POST">
+                                        @csrf
                                         <div class="mb-3">
                                             <label class="form-label mb-14">User Name</label>
                                             <input type="text" class="form-control" id="username" placeholder="Your Name">

@@ -1,17 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/home', function () {
     return view('dashboard');
 });
 
-Route::get('/login' , function(){
+//**//**// AUTH ( Register & Login ) //**//**//
+Route::middleware('guest')->group(function () {
+    Route::get('/account', [UserController::class, 'create'])->name('account');
+    Route::post('/account', [UserController::class, 'store']);
+
+    Route::get('/login', [UserController::class, 'create'])->name('login');
+    Route::post('/login', [UserController::class, 'store']);
+});
+
+/*Route::get('/login' , function(){
     return view('pages.auth.user-login');
 });
 Route::get('/account' , function(){
     return view('pages.auth.new-account');
-});
+});*/
 Route::get('/profile' , function(){
     return view('pages.auth.user-profile');
 });

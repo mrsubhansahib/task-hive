@@ -37,7 +37,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('/account}')}}">
+                        <a href="{{url('/account')}}">
                            New Account
                         </a>
                     </li>

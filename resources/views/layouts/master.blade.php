@@ -1,8 +1,8 @@
-@extends('layouts.header')
+@include('layouts.header')
 
 <body class="sidebar-expand">
     <!-- SIDEBAR -->
-    @extends('layouts.sidebar')
+    @include('layouts.sidebar')
 
     <!-- Main Header -->
     <div class="main-header">
@@ -24,7 +24,7 @@
 
     <div class="overlay"></div>
 
-    @extends('layouts.footer')
+    @include('layouts.footer')
 
 </body>
 </html>

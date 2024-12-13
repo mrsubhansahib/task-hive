@@ -23,7 +23,7 @@
                 <ul class="sidebar-menu sidebar-menu-dropdown-content">
                     <li>
                         <a href="{{url('/home')}}">
-                            Dashboard..
+                            Dashboard
                         </a>
                     </li>
                     <li>

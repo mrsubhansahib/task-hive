@@ -3,7 +3,6 @@
    Dashboard
 @endsection
 @section('main content')
-
 <!-- MAIN CONTENT -->
     <div class="main-content dashboard">
         <div class="row">

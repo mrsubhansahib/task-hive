@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('title')
+    New-Account
+@endsection
 @section('main content')
     <!-- MAIN CONTENT -->
         <div class="main-content">
@@ -22,15 +24,16 @@
                             <div class="box-body">
                                 <div class="auth-content my-auto">
 
-                                    <form class="mt-6 pt-2" action="" method="POST">
+                                    <form class="mt-6 pt-2" action="{{'/account'}}" method="POST" enctype="multipart/form-data">
                                         @csrf
+                                        @include('layouts.error')
                                         <div class="mb-3">
                                             <label class="form-label mb-14">User Name</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Your Name">
+                                            <input type="text" name="name" class="form-control" id="username" placeholder="Your Name">
                                         </div>
                                         <div class="mb-3 mt-24">
                                             <label for="useremail" class="form-label mb-14">E-Mail</label>
-                                            <input type="email" class="form-control" id="useremail" placeholder="Your Email" required>
+                                            <input type="email" name="email" class="form-control" id="useremail" placeholder="Your Email" required>
                                             <div class="invalid-feedback">
                                                 Please Enter Email
                                             </div>
@@ -43,7 +46,7 @@
                                             </div>
 
                                             <div class="input-group auth-pass-inputgroup">
-                                                <input type="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
+                                                <input type="password" name="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
                                                 <button class="btn shadow-none ms-0" type="button" id="password-addon"><i class="far fa-eye-slash"></i></button>
                                             </div>
                                         </div>
@@ -60,13 +63,13 @@
 
                                         </div>
                                         <div class="mb-3 mt-29">
-                                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">Create Account</button>
+                                             <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">Create Account</button>
                                         </div>
                                     </form>
 
 
                                     <div class="mt-59 text-center">
-                                        <p class="text-muted mb-0 fs-14">Already have an account ? <a href="user-login.html" class="text-primary fw-semibold">  Sign in </a> </p>
+                                        <p class="text-muted mb-0 fs-14">Already have an account ? <a href="{{'/user-login'}}" class="text-primary fw-semibold">  Sign in </a> </p>
                                     </div>
 
                                     <div class="mt-37 text-center">

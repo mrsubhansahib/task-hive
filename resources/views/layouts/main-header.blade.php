@@ -3,7 +3,8 @@
         <div class="d-flex align-items-center">
 
             <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
+            <form method="post" class="app-search d-none d-lg-block">
+                @csrf
                 <div class="position-relative">
                     <input type="text" class="form-control" placeholder="Search">
                     <span class="bx bx-search-alt"></span>
@@ -69,27 +70,31 @@
             </div> -->
             <div class="dropdown d-inline-block mt-12">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="images/profile/profile.png"
-                            alt="Header Avatar">
+                        <img class="rounded-circle header-profile-user mx-auto d-block "
+                        src="{{asset('uploads/profile/' . Auth::user()->image) }}" width="50px" alt="Profile Image">
                         <span class="pulse-css"></span>
                         <span class="info d-xl-inline-block  color-span">
-                            <span class="d-block fs-20 font-w600">Randy Riley</span>
-                            <span class="d-block mt-7" >randy.riley@gmail.com</span>
+                            <span class="d-block fs-20 font-w600">{{ Auth::user()->name }}</span>
+                            <span class="d-block mt-7" >{{ Auth::user()->email }}</span>
                         </span>
 
                         <i class='bx bx-chevron-down'></i>
-                    </button>
+                </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span>Profile</span></a>
+                    <a class="dropdown-item" href="{{url('/profile')}}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span>Profile</span></a>
+                    <a class="dropdown-item" href="{{url('/edit-profile')}}"><i class="bx bx-edit font-size-16 align-middle me-1"></i> <span>Edit profile</span></a>
+                    <a class="dropdown-item" href="{{url('/change-password')}}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span>Change password</span></a>
                     <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span>My Wallet</span></a>
                     <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span>Settings</span></a>
                     <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span>Lock screen</span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="user-login.html"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span>Logout</span></a>
+                    <a class="dropdown-item text-danger" href="{{route('logout')}}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span>Logout</span></a>
+
+
                 </div>
             </div>
         </div>
-    
+
 
     <!-- End Main Header -->

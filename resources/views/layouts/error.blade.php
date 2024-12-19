@@ -1,5 +1,7 @@
 <!-- error message -->
-@if(session('error'))
+@if(session('success'))
+    <div class="text-success"> {{session('success')}} </div>
+@elseif(session('error'))
     <div class="text-danger"> {{session('error')}} </div>
 @endif
 
@@ -10,9 +12,14 @@
            <li> {{$error}} </li>
         @endforeach
     </div>
- @endif
-
+@endif
 
 <!-- @//error('email')
     <span class="text-danger"> {//{$message}} </span>
- @//endif-->
+ @//enderror-->
+
+<!--@//if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">{//{session('success')}}
+        <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@//endif-->

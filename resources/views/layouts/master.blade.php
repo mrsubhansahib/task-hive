@@ -1,5 +1,4 @@
 @include('layouts.header')
-
 <body class="sidebar-expand">
     <!-- SIDEBAR -->
     @include('layouts.sidebar')
@@ -11,7 +10,7 @@
                 <i class='bx bx-menu'></i>
             </div>
             <div class="main-title">
-                Dashboard
+                @yield('title')
             </div>
             @include('layouts.main-header')
         </div>
@@ -28,3 +27,5 @@
 
 </body>
 </html>
+
+

@@ -32,7 +32,7 @@
 ***/
 
 :root {
-    --body-bg: #F9FAFE;
+    --body-bg: #f7f7f7;
     --box-bg: #ffffff;
     --main-color: #3C21F7;
     --text-color: #222943;
@@ -1966,7 +1966,7 @@ button#page-header-user-dropdown {
 }
 
 
-/* 
+/*
 .box-body {
     padding: 20px 0;
 } */
@@ -2637,7 +2637,7 @@ select.select {
 }
 
 
-/* 
+/*
 .cal-icon {
     position: relative;
     width: 100%;
@@ -2685,7 +2685,7 @@ select.select {
 ====================================================================
 
 ***/
-/* 
+/*
 .search-form {
     background: #F9FAFE;
     border-radius: 5px;
@@ -3496,7 +3496,7 @@ select.select {
 }
 
 
-/* 
+/*
 .cal-icon {
     position: relative;
     width: 100%;
@@ -4454,7 +4454,7 @@ section.login .btn.bg-primary {
 }
 
 section.login .btn.bg-primary:hover {
-    color: #fff;
+    color: #8f8b8b;
     opacity: .8;
     transition: 0.3s all;
 }

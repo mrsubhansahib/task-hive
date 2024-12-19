@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('title')
+    User-Login
+@endsection
 @section('main content')
     <!-- MAIN CONTENT -->
         <div class="main-content">
@@ -8,13 +10,13 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header d-flex justify-content-between">
-                                <a href="index.html">
+                                <a href="{{url('/home')}}">
                                     <img src="./images/logo.png" alt="">
                                 </a>
 
                                 <div class="action-reg">
                                     <h4 class="fs-30">Login</h4>
-                                    <a href="new-account.html">Sign in to your account</a>
+                                    <a href="{{url('/user-login')}}">Sign in to your account</a>
                                 </div>
 
                             </div>
@@ -22,10 +24,12 @@
                             <div class="box-body">
                                 <div class="auth-content my-auto">
 
-                                    <form class="mt-5 pt-2" action="index.html">
+                                    <form class="mt-5 pt-2" action="{{url('/user-login')}}" method="POST">
+                                        @csrf
+                                        @include('layouts.error')
                                         <div class="mb-24">
                                             <label class="form-label mb-14">Mail or User Name</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Your text">
+                                            <input type="email" class="form-control" id="useremail" placeholder="Your Email">
                                         </div>
                                         <div class="mb-16">
                                             <div class="d-flex align-items-start">
@@ -68,7 +72,7 @@
                                     </div>
 
                                     <div class="mt-37 text-center">
-                                        <p class="text-muted mb-0 fs-14">Don't have an account ? <a href="user-login.html" class="text-primary fw-semibold">  Create Account </a> </p>
+                                        <p class="text-muted mb-0 fs-14">Don't have an account ? <a href="{{url('/account')}}" class="text-primary fw-semibold">  Create Account </a> </p>
                                     </div>
 
                                     <div class="mt-37 text-center">

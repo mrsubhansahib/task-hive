@@ -1,9 +1,10 @@
 @extends('layouts.master')
-
+@section('title')
+   Dashboard
+@endsection
 @section('main content')
 
 <!-- MAIN CONTENT -->
-
     <div class="main-content dashboard">
         <div class="row">
             <div class="col-12">

@@ -1,5 +1,5 @@
 
-   <!-- SIDEBAR -->
+<!-- SIDEBAR -->
    <div class="sidebar">
     <div class="sidebar-logo">
         <a href="{{url('/home')}}">
@@ -27,12 +27,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('/profile')}}">
+                        <a href="{{url('/user-profile')}}">
                             User Profile
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('/login')}}">
+                        <a href="{{url('/user-login')}}">
                             User Login
                         </a>
                     </li>
@@ -107,14 +107,14 @@
                 </a>
             </li>
             <li class="sidebar-submenu">
-                <a href="{{url('/components')}}" class="sidebar-menu-dropdown">
+                <a href="{{url('/component')}}" class="sidebar-menu-dropdown">
                     <i class='bx bxs-component' ></i>
                     <span>Components</span>
                     <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
                 </a>
                 <ul class="sidebar-menu sidebar-menu-dropdown-content">
                     <li>
-                        <a href="{{url('/components')}}">
+                        <a href="{{url('/component')}}">
                             Apex Charts
                         </a>
                     </li>

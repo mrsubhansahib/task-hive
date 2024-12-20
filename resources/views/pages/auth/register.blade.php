@@ -53,7 +53,7 @@
 
 
                             <div class="mt-59 text-center">
-                                <p class="text-muted mb-0 fs-14">Already have an account ? <a href="{{'/login'}}" class="text-primary fw-semibold">  Sign in </a> </p>
+                                <p class="text-muted mb-0 fs-14">Already have an account ? <a href="{{url('/login')}}" class="text-primary fw-semibold">  Sign in </a> </p>
                             </div>
                         </div>
                     </div>

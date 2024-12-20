@@ -1,21 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\profile\ProfileController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 use App\Models\User;
 
 //**//**// ( GUEST ) //**//**//
-Route::middleware('guest')->group(function () {
+Route::middleware('guest')->controller(AuthController::class)->group(function () {
 
     //----  ( REGISTRATION )  ----//
-    Route::get('/register' , [RegisterController::class, 'createRegister'])->name('register');
-    Route::post('/register', [RegisterController::class, 'storeRegister']);
+    Route::get('/register' , 'create')->name('register');
+    Route::post('/register' , 'store');
 
     //----  ( LOGIN )  ----//
-    Route::get('/login' , [LoginController::class, 'createLogin'])->name('login');
-    Route::post('/login' , [LoginController::class, 'storeLogin']);
+    Route::get('/login' , 'createUser')->name('login');
+    Route::post('/login' , 'storeUser');
 
 });
 
@@ -23,26 +23,30 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
 
     //----  ( DASHBOARD )  ----//
-    Route::get('/home', function () {return view('dashboard');})->name('home');
+    Route::get('/home', function () {
+        return view('dashboard');
+    })->name('home');
 
     //----  ( NEW-ACCOUNT )  ----//
-    Route::get('/account' , [RegisterController::class, 'createAccount'])->name('Account');
-    Route::post('/account', [RegisterController::class, 'storeAccount']);
-
-    //----  ( USER-LOGIN )  ----//
-    Route::get('/user-login' , [LoginController::class, 'createUserLogin'])->name('user-login');
-    Route::post('/user-login' , [LoginController::class, 'storeUserLogin']);
+    Route::controller(UserController::class)->group(function () {
+        //----  ( USER-REGISTER )  ----//
+        Route::get('/account' , 'create')->name('user.account');
+        Route::post('/account', 'store');
+        //----  ( USER-LOGIN )  ----//
+        Route::get('/user-login' , 'createUser')->name('user.login');
+        Route::post('/user-login' , 'storeUser');
+        //----  ( LOGOUT )  ----//
+        Route::get('/logout', 'logout')->name('user.logout');
+    });
 
     //---- ( PROFILE )  ----//
-    Route::get('/profile' , [ProfileController::class, 'viewProfile'])->name('profile');
-    Route::get('/edit-profile' , [ProfileController::class, 'editProfile'])->name('edit-profile');
-    Route::post('/edit-profile' , [ProfileController::class, 'updateProfile'])->name('update-profile');
-    Route::get('/change-password' , [ProfileController::class, 'changePassword'])->name('change-password');
-    Route::post('/change-password' , [ProfileController::class, 'confirmPassword']);
-
-    //----  ( LOGOUT )  ----//
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
+    Route::controller(ProfileController::class)->group(function () {
+        Route::get('/profile' , 'view')->name('profile.view');
+        Route::get('/edit-profile' , 'edit')->name('profile.edit');
+        Route::post('/edit-profile' , 'update');
+        Route::get('/change-password' , 'changePassword')->name('confirm_password');
+        Route::post('/change-password' , 'confirmPassword');
+    });
 
 Route::get('/user-profile' , function(){
     return view('pages.auth.user-profile');

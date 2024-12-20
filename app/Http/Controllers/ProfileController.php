@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Profile;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -11,21 +9,21 @@ use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
     //**//**//  ( VIEW PROFILE )  //**//**//
-    public function viewProfile()
+    public function view()
     {
         $user = Auth::user();
         return view('pages.auth.profile.view-profile', compact('user'));
     }
 
     //**//**//  ( EDIT PROFILE )  //**//**//
-    public function editProfile()
+    public function edit()
     {
         $user = Auth::user();
         return view('pages.auth.profile.edit-profile', compact('user'));
     }
 
     //**//**//  ( UPDATE PROFILE )  //**//**//
-    public function updateProfile(Request $request)
+    public function update(Request $request)
     {
         //---- Validate the request ----//
         $request->validate([
@@ -51,10 +49,12 @@ class ProfileController extends Controller
     }
 
     //**//**//  ( CHANGE PASSWORD )  //**//**//
-    public function changePassword(){
+    public function changePassword()
+    {
         $user = Auth::user();
         return view('pages.auth.profile.change-password', compact('user'));
     }
+    
     public function confirmPassword(Request $request)
     {
         //---- Validate the request ----//

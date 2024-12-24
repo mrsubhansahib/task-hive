@@ -45,7 +45,7 @@ class ProfileController extends Controller
 
         $user->update(['name'=>$request->name, 'email'=>$request->email , 'image'=>$request->image]);
 
-        return redirect()->route('profile')->with('success', 'Profile updated successfully.');
+        return redirect()->route('profile.view')->with('success', 'Profile updated successfully.');
     }
 
     //**//**//  ( CHANGE PASSWORD )  //**//**//
@@ -54,7 +54,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         return view('pages.auth.profile.change-password', compact('user'));
     }
-    
+
     public function confirmPassword(Request $request)
     {
         //---- Validate the request ----//

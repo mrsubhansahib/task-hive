@@ -31,13 +31,6 @@
                                     <input type="text" name="job_title" class="form-control" id="jobtitle" placeholder="Your Job">
                                 </div>
                                 <div class="mb-3 mt-24">
-                                    <label for="role" class="form-label mb-14">Role</label>
-                                    <select class="form-control selectric" name="role">
-                                        <option>Admin</option>
-                                        <option>User</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3 mt-24">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                             <label class="form-label mb-14">Password</label>

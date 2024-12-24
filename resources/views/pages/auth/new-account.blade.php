@@ -28,15 +28,20 @@
                                         @csrf
                                         @include('layouts.error')
                                         <div class="mb-3">
-                                            <label class="form-label mb-14">User Name</label>
-                                            <input type="text" name="name" class="form-control" id="username" placeholder="Your Name">
+                                            <label class="form-label mb-14">Name</label>
+                                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                        </div>
+                                        <div class="mb-3 mt-24">
+                                            <label for="username" class="form-label mb-14">User Name</label>
+                                            <input type="text" name="username" class="form-control" id="username" placeholder="Your User Name">
                                         </div>
                                         <div class="mb-3 mt-24">
                                             <label for="useremail" class="form-label mb-14">E-Mail</label>
-                                            <input type="email" name="email" class="form-control" id="useremail" placeholder="Your Email" required>
-                                            <div class="invalid-feedback">
-                                                Please Enter Email
-                                            </div>
+                                            <input type="email" name="email" class="form-control" id="useremail" placeholder="Your Email">
+                                        </div>
+                                        <div class="mb-3 mt-24">
+                                            <label for="jobtitle" class="form-label mb-14">Job Title</label>
+                                            <input type="text" name="job_title" class="form-control" id="jobtitle" placeholder="Your Job">
                                         </div>
                                         <div class="mb-3 mt-24">
                                             <div class="d-flex align-items-start">
@@ -50,7 +55,6 @@
                                                 <button class="btn shadow-none ms-0" type="button" id="password-addon"><i class="far fa-eye-slash"></i></button>
                                             </div>
                                         </div>
-
                                         <div class="row mb-4">
                                             <div class="col">
                                                 <div class="form-check">
@@ -63,39 +67,11 @@
 
                                         </div>
                                         <div class="mb-3 mt-29">
-                                             <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">Create Account</button>
+                                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">Create Account</button>
                                         </div>
                                     </form>
-
-
                                     <div class="mt-59 text-center">
                                         <p class="text-muted mb-0 fs-14">Already have an account ? <a href="{{'/user-login'}}" class="text-primary fw-semibold">  Sign in </a> </p>
-                                    </div>
-
-                                    <div class="mt-37 text-center">
-
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item">
-                                                <a href="javascript:void()" class="social-list-item text-white">
-                                                    <i class='bx bxl-facebook-square'></i>
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="javascript:void()" class="social-list-item text-white">
-                                                    <i class='bx bxl-twitter'></i>
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="javascript:void()" class="social-list-item  text-white">
-                                                    <i class='bx bxl-linkedin-square'></i>
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="javascript:void()" class="social-list-item  text-white">
-                                                    <i class='bx bxl-google-plus'></i>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

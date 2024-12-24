@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
 {
-    public $table= 'card';
     protected $fillable=[
         'comments',
         'members',
@@ -16,7 +15,7 @@ class Card extends Model
         'tilte',
         'created_by',
         'card_type',
-        'tab_id', 
+        'tab_id',
         'table_id',
         'attachment',
         'end_id',

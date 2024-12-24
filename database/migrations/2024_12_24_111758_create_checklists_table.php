@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('checklists', function (Blueprint $table) {
             $table->id();
             $table->string('created_by');
-            $table->string('card_id');
+            $table->foreign('card_id')->constrained()->onDelete('cascade');
             $table->string('title');
-
-
             $table->timestamps();
         });
     }

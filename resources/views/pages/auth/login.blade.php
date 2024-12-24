@@ -10,7 +10,7 @@
                             <h2>Sign in</h2>
                         </div>
                         <div class="auth-content my-auto">
-                            <form class="mt-5 pt-2" action="{{'/login'}}" method="POST">
+                            <form class="mt-5 pt-2" action="{{url('/login')}}" method="POST">
                                 @csrf
                                 @include('layouts.error')
                                 <div class="mb-24">
@@ -46,7 +46,7 @@
                             </form>
 
                             <div class="mt-37 text-center">
-                                <p class="text-muted mb-0 fs-14">Don't have an account ? <a href="{{'/register'}}" class="text-primary fw-semibold">  Create Account </a> </p>
+                                <p class="text-muted mb-0 fs-14">Don't have an account ? <a href="{{url('/register')}}" class="text-primary fw-semibold">  Create Account </a> </p>
                             </div>
                         </div>
                     </div>

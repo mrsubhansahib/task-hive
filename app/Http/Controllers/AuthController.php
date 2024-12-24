@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+class AuthController extends Controller
 {
     //**//**//  ( REGISTRATION )  //**//**//
-    public function createRegister()
+    public function create()
     {
         return view('pages.auth.register');
     }
 
-    public function storeRegister(Request $request)
+    public function store(Request $request)
     {
         //---- Validate the request ----//
         $request->validate([
@@ -41,34 +39,26 @@ class RegisterController extends Controller
         }
     }
 
-    //**//**//  ( NEW-ACCOUNT )  //**//**//
-    public function createAccount()
+    //**//**//  ( LOGIN )  //**//**//
+    public function createUser()
     {
-        return view('pages.auth.new-account');
+        return view('pages.auth.login');
     }
 
-    public function storeAccount(Request $request)
+    public function storeUser(Request $request)
     {
         //---- Validate the request ----//
         $request->validate([
-            'name' => 'required|min:6',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-        ]);
-        //---- Create database entry ----//
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'image'=>'profile_image.jpg'
+            'email' => 'required|email' ,
+            'password' => 'required' ,
         ]);
 
-        //---- Check if the user was created ----//
-        if ($user) {
-            return redirect('/user-login')->with('success' , 'Registration successful');
-        } else {
-            return redirect()->back()->with('error' , 'Registration failed');
+        //---- Attempt to login the user ----//
+        if(Auth::attempt($request->only('email' , 'password'))){
+            return redirect()->route('home');
+        }else{
+            return redirect()->back()->with('error' , 'Inavalid credentails');
         }
+
     }
 }
-

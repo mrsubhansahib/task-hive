@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('created_by');
             $table->string('card_type');
-            $table->string('tab_id');
-            $table->string('table_id');
+            $table->foreign('tab_id')->constrained()->onDelete('cascade');
+            $table->foreign('table_id')->constrained()->onDelete('cascade');
             $table->string('attachment');
             $table->string('end_date');
             $table->timestamps();

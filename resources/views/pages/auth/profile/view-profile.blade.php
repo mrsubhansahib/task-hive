@@ -24,26 +24,28 @@
                                 @csrf
                                 @include('layouts.error')
                                 <div class="mb-3">
-                                    <label class="form-label mb-14">User Name</label>
-                                    <input type="text" value="{{$user->name}}" readonly name="name" class="form-control" id="username" placeholder="Your Name">
+                                    <label class="form-label mb-14">Name</label>
+                                    <input type="text" value="{{$user->name}}" readonly name="name" class="form-control" id="name" placeholder="Your Name">
+                                </div>
+                                <div class="mb-3 mt-24">
+                                    <label for="username" class="form-label mb-14">User Name</label>
+                                    <input type="text" name="username" value="{{$user->username}}" class="form-control" id="username" placeholder="Your User Name">
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <label for="useremail" class="form-label mb-14">E-Mail</label>
                                     <input type="email" value="{{$user->email}}" readonly name="email" class="form-control" id="useremail" placeholder="Your Email">
                                 </div>
                                 <div class="mb-3 mt-24">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-grow-1">
-                                            <label class="form-label mb-14">Password</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="input-group auth-pass-inputgroup">
-                                        <input type="password" value="{{'password'}}" readonly name="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
-                                       <!-- <button class="btn shadow-none ms-0" type="button" id="password-addon"><i class="far fa-eye-slash"></i></button>-->
-                                    </div>
+                                    <label for="jobtitle" class="form-label mb-14">Job Title</label>
+                                    <input type="text" name="job_title" value="{{$user->job_title}}" class="form-control" id="jobtitle" placeholder="Your Job">
                                 </div>
-
+                                <div class="mb-3 mt-24">
+                                    <label for="role" class="form-label mb-14">Role</label>
+                                    <select class="form-control selectric" name="role" value="{{$user->role}}">
+                                        <option>Admin</option>
+                                        <option>User</option>
+                                    </select>
+                                </div>
                                 <div class="row mb-4">
                                     <div class="col">
                                         <div class="form-check">

@@ -19,16 +19,22 @@ class AuthController extends Controller
         //---- Validate the request ----//
         $request->validate([
             'name' => 'required|min:6',
+            'username' => 'required|min:6',
             'email' => 'required|email|unique:users,email',
+            'job_title' => 'required',
+            'role' =>'required',
             'password' => 'required|min:6',
         ]);
 
         //---- Create database entry ----//
         $user = User::create([
-            'name' => $request->name,
+             'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
+            'job_title' => $request->job_title,
+            'role' => strtolower($request->role),
             'password' => Hash::make($request->password),
-            'image'=>'profile_image.jpg'
+            'image'=>'profile_image.jpg',
         ]);
 
         //---- Check if the user was created ----//

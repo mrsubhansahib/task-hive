@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <label for="username" class="form-label mb-14">User Name</label>
-                                    <input type="text" name="username" value="{{$user->username}}" class="form-control" id="username" placeholder="Your User Name">
+                                    <input type="text" name="username" value="{{$user->username}}" readonly class="form-control" id="username" placeholder="Your User Name">
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <label for="useremail" class="form-label mb-14">E-Mail</label>
@@ -37,14 +37,11 @@
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <label for="jobtitle" class="form-label mb-14">Job Title</label>
-                                    <input type="text" name="job_title" value="{{$user->job_title}}" class="form-control" id="jobtitle" placeholder="Your Job">
+                                    <input type="text" name="job_title" value="{{$user->job_title}}" readonly class="form-control" id="jobtitle" placeholder="Your Job">
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <label for="role" class="form-label mb-14">Role</label>
-                                    <select class="form-control selectric" name="role" value="{{$user->role}}">
-                                        <option>Admin</option>
-                                        <option>User</option>
-                                    </select>
+                                    <input type="text" name="job_title" value="{{$user->role}}" readonly class="form-control" id="role">
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col">

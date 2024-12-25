@@ -28,7 +28,10 @@ class ProfileController extends Controller
         //---- Validate the request ----//
         $request->validate([
             'name' => 'required|min:6',
+            'username' => 'required|min:6',
             'email' => 'required|email|unique:users,email,' . Auth::id(),
+            'job_title' => 'required',
+            'role' =>'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048' ,
         ]);
 
@@ -43,7 +46,8 @@ class ProfileController extends Controller
         //---- Check if the profile was updated ----//
         $user = Auth::user();
 
-        $user->update(['name'=>$request->name, 'email'=>$request->email , 'image'=>$request->image]);
+        $user->update(['name'=>$request->name, 'username'=>$request->username  , 'email'=>$request->email ,
+                        'job_title'=>$request->job_title , 'role'=>$request->role , 'image'=>$request->image]);
 
         return redirect()->route('profile.view')->with('success', 'Profile updated successfully.');
     }

@@ -39,10 +39,6 @@
                                     <label for="jobtitle" class="form-label mb-14">Job Title</label>
                                     <input type="text" name="job_title" value="{{$user->job_title}}" readonly class="form-control" id="jobtitle" placeholder="Your Job">
                                 </div>
-                                <div class="mb-3 mt-24">
-                                    <label for="role" class="form-label mb-14">Role</label>
-                                    <input type="text" name="job_title" value="{{$user->role}}" readonly class="form-control" id="role">
-                                </div>
                                 <div class="row mb-4">
                                     <div class="col">
                                         <div class="form-check">

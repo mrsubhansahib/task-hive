@@ -22,7 +22,6 @@ class UserController extends Controller
             'username' => 'required|min:6',
             'email' => 'required|email|unique:users,email',
             'job_title' => 'required',
-            'role' =>'required',
             'password' => 'required|min:6',
         ]);
 
@@ -32,7 +31,6 @@ class UserController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'job_title' => $request->job_title,
-            'role' => $request->role,
             'password' => Hash::make($request->password),
             'image'=>'profile_image.jpg'
         ]);

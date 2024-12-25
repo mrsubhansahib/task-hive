@@ -40,13 +40,6 @@
                                     <input type="text" name="job_title" value="{{$user->job_title}}" class="form-control" id="jobtitle" placeholder="Your Job">
                                 </div>
                                 <div class="mb-3 mt-24">
-                                    <label for="role" class="form-label mb-14">Role</label>
-                                    <select class="form-control selectric">
-                                        <option>Admin</option>
-                                        <option>User</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3 mt-24">
                                     <lable for="inputImage" class="form-label mb-14">Image</lable>
                                     <input type="file" class="form-control mt-14" name="image" id="inputUserImage" autocomplete="image">
                                 </div>

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('updated_by');
             $table->string('title');
             $table->string('color');
-            $table->string('board_id'); 
+            $table->foreignId('board_id')->constrained()->onDelete('cascade'); 
             $table->timestamps();
         });
     }

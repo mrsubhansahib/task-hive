@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tabs', function (Blueprint $table) {
             $table->id();
-            $table->string('board_id');
+            $table->foreignId('board_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->string('position');
             $table->timestamps();

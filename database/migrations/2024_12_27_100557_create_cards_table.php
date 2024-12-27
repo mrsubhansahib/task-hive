@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->string('comments');
-            $table->string('members');
-            $table->string('number');
-            $table->string('start_date');
-            $table->string('description');
+            $table->string('comments')->nullable();
+            $table->string('members')->nullable();
+            $table->string('position');
+            $table->string('start_date')->nullable();
+            $table->string('description')->nullable();
             $table->string('title');
-            $table->string('created_by');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('card_type');
-            $table->foreign('tab_id')->constrained()->onDelete('cascade');
-            $table->foreign('table_id')->constrained()->onDelete('cascade');
-            $table->string('attachment');
-            $table->string('end_date');
+            $table->foreignId('tab_id')->constrained()->onDelete('cascade');
+            $table->foreignId('label_id')->constrained()->onDelete('cascade')->nullable();
+            $table->string('attachment')->nullable();
+            $table->string('end_date')->nullable();
             $table->timestamps();
         });
     }

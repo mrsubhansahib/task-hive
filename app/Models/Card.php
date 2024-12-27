@@ -9,15 +9,31 @@ class Card extends Model
     protected $fillable=[
         'comments',
         'members',
-        'number',
-        'Start_date',
+        'position',
+        'start_date',
         'description',
-        'tilte',
-        'created_by',
+        'title',
+        'user_id',
         'card_type',
         'tab_id',
-        'table_id',
+        'label_id',
         'attachment',
         'end_id',
     ];
+    public function tab()
+    {
+        return $this->belongsTo(Tab::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function label()
+    {
+        return $this->belongsTo(Label::class);
+    }
+    public function checklist()
+    {
+        return $this->hasMany(Checklist::class);
+    }
 }

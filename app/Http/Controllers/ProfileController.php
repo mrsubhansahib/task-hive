@@ -35,18 +35,29 @@ class ProfileController extends Controller
         ]);
 
         //---- Handle upload images ----//
+        $imageName = null;
         if ($request->hasFile('image')) {
             $imageName = \Str::uuid() . '.' . $request->image->getClientOriginalExtension();
-            // dd($imageName);
             $request->image->move(public_path('uploads/profile'), $imageName);
-            $request->image = $imageName;
         }
 
         //---- Check if the profile was updated ----//
         $user = Auth::user();
 
-        $user->update(['name'=>$request->name, 'username'=>$request->username  , 'email'=>$request->email ,
-                        'job_title'=>$request->job_title , 'image'=>$request->image]);
+        //---- Update fields ----//
+        $dataUpdate = [
+            'name' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'job_title' => $request->job_title,
+        ];
+
+        if ($imageName) {
+            $dataUpdate['image'] = $imageName;
+        }
+
+        $user->update($dataUpdate);
+
 
         return redirect()->route('profile.view')->with('success', 'Profile updated successfully.');
     }

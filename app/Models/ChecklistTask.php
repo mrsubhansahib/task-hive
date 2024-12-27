@@ -11,4 +11,12 @@ class ChecklistTask extends Model
         'description',
         'position',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function checklist()
+    {
+        return $this->belongsTo(Checklist::class);
+    }
 }

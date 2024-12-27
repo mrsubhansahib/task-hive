@@ -49,4 +49,34 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);   
+    }
+    public function user_workspaces()
+    {
+        return $this->hasMany(UserWorkspace::class);
+    }
+    public function workspaces()
+    {
+        return $this->hasMany(Workspace::class);
+    }
+    public function boards(){
+        return $this->hasMany(Board::class);
+    }
+    public function labels(){
+        return $this->hasMany(Label::class);
+    }
+    public function tabs(){
+        return $this->hasMany(Tab::class);
+    }
+    public function cards(){
+        return $this->hasMany(Card::class);
+    }
+    public function checklists(){
+        return $this->hasMany(Checklist::class);
+    }
+    public function checklist_tasks(){
+        return $this->hasMany(ChecklistTask::class);
+    }    
 }

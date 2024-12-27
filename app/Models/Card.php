@@ -20,4 +20,20 @@ class Card extends Model
         'attachment',
         'end_id',
     ];
+    public function tab()
+    {
+        return $this->belongsTo(Tab::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function label()
+    {
+        return $this->belongsTo(Label::class);
+    }
+    public function checklist()
+    {
+        return $this->hasMany(Checklist::class);
+    }
 }

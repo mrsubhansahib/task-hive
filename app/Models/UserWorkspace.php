@@ -10,4 +10,12 @@ class UserWorkspace extends Model
         'user_id',
         'workspace_id',
     ];
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+    public function workspaces()
+    {
+        return $this->belongsToMany(Workspace::class);
+    }
 }

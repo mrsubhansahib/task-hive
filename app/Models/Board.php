@@ -13,4 +13,16 @@ class Board extends Model
         'visibility',
         'user_id',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function tabs()
+    {
+        return $this->hasMany(Tab::class);
+    }
+    public function labels()
+    {
+        return $this->hasMany(Label::class);
+    }
 }

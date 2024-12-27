@@ -12,4 +12,12 @@ class Workspace extends Model
         'description',
         'visibility',
     ];
+    public function user_workspaces()
+    {
+        return $this->hasMany(UserWorkspace::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    } 
 }

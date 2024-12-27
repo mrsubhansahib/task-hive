@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tabs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('board_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->string('position');
             $table->timestamps();

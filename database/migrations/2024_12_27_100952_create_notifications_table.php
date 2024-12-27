@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('workspace_id')->constrained()->cascadeOnDelete();
             $table->foreignId('board_id')->constrained()->cascadeOnDelete();
             $table->string('message');
-            $table->string('status');
+            $table->string('status')->default('unread');
             $table->timestamps();
         });
     }

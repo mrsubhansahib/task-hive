@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('labels', function (Blueprint $table) {
             $table->id();
-            $table->string('updated_by');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->string('color');
             $table->foreignId('board_id')->constrained()->onDelete('cascade');

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('checklist_tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('created_by');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('checklist_id')->constrained()->onDelete('cascade');
             $table->string('description');
             $table->string('position');
             $table->timestamps();

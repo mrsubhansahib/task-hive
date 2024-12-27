@@ -29,9 +29,16 @@ Route::middleware('auth')->group(function () {
 
     //----  ( NEW-ACCOUNT )  ----//
     Route::controller(UserController::class)->group(function () {
-        //----  ( USER-REGISTER )  ----//
+        //----  ( CREATE )  ----//
         Route::get('/account' , 'create')->name('user.account');
         Route::post('/account', 'store');
+        //---- ( READ ) ----//
+        Route::get('/user-form' , 'read')->name('user.form');
+        //---- ( UPDATE ) ----//
+        Route::get('/user-update/{id}' , 'edit')->name('user.update');
+        Route::post('/user-update/{id}' , 'update')->name('user.update');
+        //---- ( DELETE ) ----//
+        Route::get('/user-destroy/{id}' , 'delete')->name('user.destroy');
         //----  ( USER-LOGIN )  ----//
         Route::get('/user-login' , 'createUser')->name('user.login');
         Route::post('/user-login' , 'storeUser');
@@ -47,6 +54,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/change-password' , 'changePassword')->name('confirm_password');
         Route::post('/change-password' , 'confirmPassword');
     });
+
 
 Route::get('/user-profile' , function(){
     return view('pages.auth.user-profile');

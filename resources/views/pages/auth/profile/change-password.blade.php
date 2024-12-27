@@ -8,9 +8,7 @@
     <section class="login singup">
         <div class="row">
             <div class="col-lg-12 col-md-6">
-                @if(session('success'))
-                    <div class="alert alert-success">{{ session('success') }}</div>
-                @endif
+                @include('layouts.error')
                 <div class="box">
                     <div class="box-header d-flex justify-content-between">
                         <a href="{{url('/home')}}">

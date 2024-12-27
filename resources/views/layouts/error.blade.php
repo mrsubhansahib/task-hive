@@ -1,9 +1,20 @@
-<!-- error message -->
+<!-- alert message -->
 @if(session('success'))
-    <div class="text-success"> {{session('success')}} </div>
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Success :</strong> {{session('success')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
 @elseif(session('error'))
-    <div class="text-danger"> {{session('error')}} </div>
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Warning :</strong> {{session('error')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
 @endif
+
 
 <!-- Display validation error -->
 @if(($errors->any))
@@ -14,12 +25,10 @@
     </div>
 @endif
 
-<!-- @//error('email')
-    <span class="text-danger"> {//{$message}} </span>
- @//enderror-->
 
+<!-- error message -->
 <!--@//if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">{//{session('success')}}
-        <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    <div class="text-success"> {//{session('success')}} </div>
+@//elseif(session('error'))
+    <div class="text-danger"> {//{session('error')}} </div>
 @//endif-->

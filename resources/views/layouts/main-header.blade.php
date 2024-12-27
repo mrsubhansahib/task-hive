@@ -70,11 +70,28 @@
             </div> -->
             <div class="dropdown d-inline-block mt-12">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @php
+                        //---- Generate a color based on the username ----//
+                        $username = Auth::user()->username;
+                        //---- Array of bg-colors ----//
+                        $colors = ['bg-primary', 'bg-success', 'bg-danger', 'bg-warning', 'bg-info', 'bg-secondary' , 'bg-dark'];
+                        //---- Calculate index for selecting color ----//
+                        $colorIndex = ord(strtoupper(substr($username, 0, 1))) % count($colors);
+                        //---- Select color based on calculated colorIndex ----//
+                        $bgColor = $colors[$colorIndex];
+                    @endphp
+
+                    @if(Auth::user()->image)
                         <img class="rounded-circle header-profile-user mx-auto d-block "
-                        src="{{asset('uploads/profile/' . Auth::user()->image) }}" width="50px" alt="Profile Image">
+                        src="{{asset('uploads/profile/' . Auth::user()->image) }}" width="50px" alt="Profile Image">-->
+                    @else
+                        <div class="rounded-circle {{ $bgColor }} text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 20px;">
+                            {{ strtoupper(substr(Auth::user()->username, 0, 1)) }}
+                        </div>
+                    @endif
                         <span class="pulse-css"></span>
                         <span class="info d-xl-inline-block  color-span">
-                            <span class="d-block fs-20 font-w600">{{ Auth::user()->name }}</span>
+                            <span class="d-block fs-20 font-w600">{{ Auth::user()->username }}</span>
                             <span class="d-block mt-7" >{{ Auth::user()->email }}</span>
                         </span>
 

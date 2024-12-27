@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    //**//**//  ( NEW-ACCOUNT )  //**//**//
+    //**//**//  ( CREATE ACCOUNT )  //**//**//
     public function create()
     {
-        return view('pages.auth.new-account');
+        return view('pages.admin.create');
     }
 
     public function store(Request $request)
@@ -46,7 +46,7 @@ class UserController extends Controller
     //**//**//  ( USER-LOGIN )  //**//**//
     public function createUser()
     {
-        return view('pages.auth.user-login');
+        return view('pages.admin.user-login');
     }
 
     public function storeUser(Request $request)
@@ -75,4 +75,42 @@ class UserController extends Controller
 
         return redirect('/login');
     }
+
+    //**//**// ( USER-FORM) //**//**//
+    public function read()
+    {
+        $users = User::all();
+        return view('pages.admin.read', compact('users'));
+
+    }
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('pages.admin.update', compact('user'));
+    }
+    /*public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|min:6',
+            'username' => 'required|min:6|unique:users,username,' . $id,
+            'job_title' => 'required',
+            'role' => 'required',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+
+        return redirect('/user-form')->with('success', 'User updated successfully.');
+    }*/
+
+    //**//**// ( USER-DELETE ) //**//**//
+    public function delete($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect('/user-form')->with('success', 'User deleted successfully.');
+    }
 }
+
+

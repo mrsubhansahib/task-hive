@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Label extends Model
 {
     protected $fillable = [
-        'updated_by',
+        'user_id',
         'title',
         'color',
         'board_id',

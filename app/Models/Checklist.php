@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Checklist extends Model
 {
     protected $fillable =[
-        'creatded_by',
+        'user_id',
         'card_id',
         'title',
     ];

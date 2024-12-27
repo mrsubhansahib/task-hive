@@ -10,7 +10,6 @@ class Board extends Model
         'title',
         'workspace_id',
         'description',
-        'description',
         'visibility',
         'user_id',
     ];

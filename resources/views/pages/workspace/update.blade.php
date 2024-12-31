@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('main content')
 <div class="main-content">
-    <div class="col-6">
+    <div class="col-12">
         @include('layouts.error')
         <div class="box">
             <form class="mt-6 pt-2" action="{{url('/edit-workspace')}}" method="POST" enctype="multipart/form-data">
@@ -12,13 +12,13 @@
                 </div>
                 <div class="mb-3 mt-24">
                     <label for="description" class="form-label mb-14">Description</label>
-                    <input type="text" value="{{ old('description', $workspace->description ?? '') }}" name="description" class="form-control" id="description" placeholder="Description">
+                    <input type="description" value="{{ old('description', $workspace->description ?? '') }}" name="description" class="form-control" id="description" placeholder="Description">
                 </div>
                 <div class="mb-3 mt-24">
                     <label for="visibility" class="form-label mb-14">Visibility</label>
                     <select name="visibility" class="form-control" id="visibility" required>
-                        <option value= "public"{{ (old('visibility', $workspace->visibility ?? '') === 'public') ? 'selected' : '' }}>Public</option>
-                        <option value="private"{{ (old('visibility', $workspace->visibility ?? '') === 'private') ? 'selected' : '' }}>Private</option>
+                        <option value= "public"{{ (old('visibility', $workspace->visibility ?? '') === 'public') ? 'selected' : '' }}><img src="./images/icon/group.png" class="ms-2 me-2" alt="Edit Icon" width="15">Public</option>
+                        <option value="private"{{ (old('visibility', $workspace->visibility ?? '') === 'private') ? 'selected' : '' }}><img src="./images/icon/lock.png" class="ms-2 me-2" alt="Edit Icon" width="22">Private</option>
                     </select>
                 </div>
                 <div class="mb-3 mt-29">

@@ -41,7 +41,20 @@
                                         </div>
                                         <div class="mb-3 mt-24">
                                             <label for="jobtitle" class="form-label mb-14">Job Title</label>
-                                            <input type="text" name="job_title" class="form-control" id="jobtitle" placeholder="Your Job">
+                                            <select name="job_title" required class="form-control" id="visibility">
+                                                <option>Manager</option>
+                                                <option>Project Manager</option>
+                                                <option>SEO</option>
+                                                <option>IT Skills</option>
+                                                <option>Word Press</option>
+                                                <option>Video Editing</option>
+                                                <option>Graphic Design</option>
+                                                <option>Web Developmennt</option>
+                                                <option>Digital Marketing</option>
+                                                <option>Spoken English IELTS</option>
+                                                <option>Mern Stack Development</option>
+                                                <option>Social Media Marketing</option>
+                                            </select>
                                         </div>
                                         <div class="mb-3 mt-24">
                                             <div class="d-flex align-items-start">

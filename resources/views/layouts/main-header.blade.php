@@ -101,7 +101,7 @@
                     <!-- item-->
                     <a class="dropdown-item" href="{{url('/profile')}}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span>Profile</span></a>
                     <a class="dropdown-item" href="{{url('/edit-profile')}}"><i class="bx bx-edit font-size-16 align-middle me-1"></i> <span>Edit profile</span></a>
-                    <a class="dropdown-item" href="{{url('/change-password')}}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span>Change password</span></a>
+                    <a class="dropdown-item" href="{{url('/change-password')}}"><img src="./images/icon/key.png" class="bx bx-edit font-size-16 align-middle me-1" width="14" > <span>Change password</span></a>
                     <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span>My Wallet</span></a>
                     <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span>Settings</span></a>
                     <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span>Lock screen</span></a>

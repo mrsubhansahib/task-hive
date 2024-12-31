@@ -16,7 +16,7 @@
                                 <img src="./images/icon/edit.png" class="ms-3" alt="Edit Icon" width="20">
                             </a>
                         </h5>
-                        <h7 class="d-flex align-items-center mb-0 mt-5">{{ ucfirst($workspace->visibility ?? 'Private') }}</h7>
+                        <h7 class="d-flex align-items-center mb-0 mt-5"><img src="./images/icon/lock.png" class="ms-2 me-2" alt="Edit Icon" width="18">{{ ucfirst($workspace->visibility ?? 'Private') }}</h7>
                     </div>
                 </div>
                 <div class="box-footer ms-4 mt-5">

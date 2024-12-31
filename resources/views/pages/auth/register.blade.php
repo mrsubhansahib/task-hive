@@ -16,19 +16,32 @@
                                 @include('layouts.error')
                                 <div class="mb-3">
                                     <label class="form-label mb-14">Name</label>
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <label for="username" class="form-label mb-14">User Name</label>
-                                    <input type="text" name="username" class="form-control" id="username" placeholder="Your User Name">
+                                    <input type="text" name="username" class="form-control" required id="username" placeholder="Your User Name">
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <label for="useremail" class="form-label mb-14">E-Mail</label>
-                                    <input type="email" name="email" class="form-control" id="useremail" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control" required id="useremail" placeholder="Your Email">
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <label for="jobtitle" class="form-label mb-14">Job Title</label>
-                                    <input type="text" name="job_title" class="form-control" id="jobtitle" placeholder="Your Job">
+                                    <select name="job_title" required class="form-control" id="visibility">
+                                        <option>Manager</option>
+                                        <option>Project Manager</option>
+                                        <option>SEO</option>
+                                        <option>IT Skills</option>
+                                        <option>Word Press</option>
+                                        <option>Video Editing</option>
+                                        <option>Graphic Design</option>
+                                        <option>Web Developmennt</option>
+                                        <option>Digital Marketing</option>
+                                        <option>Spoken English IELTS</option>
+                                        <option>Mern Stack Development</option>
+                                        <option>Social Media Marketing</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <div class="d-flex align-items-start">
@@ -38,7 +51,7 @@
                                     </div>
 
                                     <div class="input-group auth-pass-inputgroup">
-                                        <input type="password" name="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
+                                        <input type="password" name="password" required class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
                                         <button class="btn shadow-none ms-0" type="button" id="password-addon"><i class="far fa-eye-slash"></i></button>
                                     </div>
                                 </div>

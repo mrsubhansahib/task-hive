@@ -55,10 +55,8 @@ class ProfileController extends Controller
         if ($imageName) {
             $dataUpdate['image'] = $imageName;
         }
-
         $user->update($dataUpdate);
-
-
+        
         return redirect()->route('profile.view')->with('success', 'Profile updated successfully.');
     }
 

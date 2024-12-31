@@ -37,7 +37,20 @@
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <label for="jobtitle" class="form-label mb-14">Job Title</label>
-                                    <input type="text" name="job_title" value="{{$user->job_title}}" class="form-control" id="jobtitle" placeholder="Your Job">
+                                    <select name="job_title" required class="form-control" id="visibility">
+                                        <option value="Manger" {{ $user->job_title == 'Manager' ? 'selected' : '' }}>Manager</option>
+                                        <option value="Project Manager" {{ $user->job_title == 'Project Manager' ? 'selected' : '' }}>Project Manager</option>
+                                        <option value="SEO" {{ $user->job_title == 'SEO' ? 'selected' : '' }}>SEO</option>
+                                        <option value="IT Skills" {{ $user->job_title == 'IT Skills' ? 'selected' : '' }}>IT Skills</option>
+                                        <option value="Word Press" {{ $user->job_title == 'Word Press' ? 'selected' : '' }}>Word Press</option>
+                                        <option value="Video Editing" {{ $user->job_title == 'Video Editing' ? 'selected' : '' }}>Video Editing</option>
+                                        <option value="Graphic Design" {{ $user->job_title == 'Graphic Design' ? 'selected' : '' }}>Graphic Design</option>
+                                        <option value="Web Development" {{ $user->job_title == 'Web Development' ? 'selected' : '' }}>Web Development</option>
+                                        <option value="Digital Marketing" {{ $user->job_title == 'Digital Marketing' ? 'selected' : '' }}>Digital Marketing</option>
+                                        <option value="Spoken English IELTS" {{ $user->job_title == 'Spoken English IELTS' ? 'selected' : '' }}>Spoken English IELTS</option>
+                                        <option value="Mern Stack Development" {{ $user->job_title == 'Mern Stack Development' ? 'selected' : '' }}>Mern Stack Development</option>
+                                        <option value="Social Media Marketing" {{ $user->job_title == 'Social Media Marketing' ? 'selected' : '' }}>Social Media Marketing</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3 mt-24">
                                     <lable for="inputImage" class="form-label mb-14">Image</lable>

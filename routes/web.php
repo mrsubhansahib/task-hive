@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkspaceController;
+use App\Http\Controllers\BoardController;
 use App\Models\User;
 
 //**//**// ( GUEST ) //**//**//
@@ -47,14 +48,17 @@ Route::middleware('auth')->group(function () {
     });
 
     //---- ( WORKSPACE ) ----//
-    Route::controller(WorkspaceController::class)->group(function () {
-        Route::get('/workspace' , 'create')->name('workspace.create');
-        Route::post('/workspace' , 'store');
-        Route::get('/edit-workspace' , 'edit')->name('workspace.edit');
-        Route::post('/edit-workspace' , 'update');
+    Route::controller(WorkspaceController::class)->prefix('workspace')->name('workspace')->group(function () {
+        Route::get('/' , 'create')->name('.create');
+        Route::post('/' , 'store');
+        Route::get('/edit' , 'edit')->name('.edit');
+        Route::post('/edit' , 'update');
     });
-    Route::controller(WorkspaceController::class)->group(function () {
-
+    Route::controller(BoardController::class)->group(function () {
+        Route::get('/create', 'create');
+        Route::get('/edit-board', 'edit');
+        Route::post('/edit-board', 'update');
+        Route::post('/made-board', 'createboard');
     });
 
 

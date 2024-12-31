@@ -11,6 +11,7 @@ class AuthController extends Controller
     //**//**//  ( REGISTRATION )  //**//**//
     public function create()
     {
+        
         return view('pages.auth.register');
     }
 

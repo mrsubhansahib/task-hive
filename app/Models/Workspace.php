@@ -22,6 +22,6 @@ class Workspace extends Model
     }
     public function boards()
     {
-        return $this->hasMany(Boards::class);
+        return $this->hasMany(Board::class);
     }
 }

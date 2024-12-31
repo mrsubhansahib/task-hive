@@ -11,8 +11,7 @@ class BoardController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   
     }
 
     /**
@@ -20,15 +19,28 @@ class BoardController extends Controller
      */
     public function create()
     {
-        //
+        return view ('pages.board.boardform');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function createboard(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'visibility' => 'required|in:public,private',
+        ]);
+        $board = new Board();
+        $board->id = uniqid();
+        $board->user_id = auth()->id();
+        $board->title = $request->input('title');
+        $board->description = $request->input('description');
+        $board->visibility = $request->input('visibility');
+        $board->save();
+
+        return redirect('/board');
     }
 
     /**

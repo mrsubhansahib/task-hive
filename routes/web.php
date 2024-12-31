@@ -53,6 +53,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit-workspace' , 'edit')->name('workspace.edit');
         Route::post('/edit-workspace' , 'update');
     });
+    Route::controller(WorkspaceController::class)->group(function () {
+
+    });
+
 
 Route::get('/user-profile' , function(){
     return view('pages.auth.user-profile');

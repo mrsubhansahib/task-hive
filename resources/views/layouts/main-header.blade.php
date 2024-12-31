@@ -83,7 +83,7 @@
 
                     @if(Auth::user()->image)
                         <img class="rounded-circle header-profile-user mx-auto d-block "
-                        src="{{asset('uploads/profile/' . Auth::user()->image) }}" width="50px" alt="Profile Image">-->
+                        src="{{asset('uploads/profile/' . Auth::user()->image) }}" width="50px" alt="Profile Image">
                     @else
                         <div class="rounded-circle {{ $bgColor }} text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 20px;">
                             {{ strtoupper(substr(Auth::user()->username, 0, 1)) }}

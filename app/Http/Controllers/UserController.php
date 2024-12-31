@@ -11,7 +11,7 @@ class UserController extends Controller
     //**//**//  ( CREATE ACCOUNT )  //**//**//
     public function create()
     {
-        return view('pages.admin.create');
+        return view('pages.auth.create');
     }
 
     public function store(Request $request)
@@ -37,33 +37,10 @@ class UserController extends Controller
 
         //---- Check if the user was created ----//
         if ($user) {
-            return redirect('/user-login')->with('success' , 'Registration successful');
+            return redirect()->back()->with('success' , 'Registration successful');
         } else {
             return redirect()->back()->with('error' , 'Registration failed');
         }
-    }
-
-    //**//**//  ( USER-LOGIN )  //**//**//
-    public function createUser()
-    {
-        return view('pages.admin.user-login');
-    }
-
-    public function storeUser(Request $request)
-    {
-        //---- Validate the request ----//
-        $request->validate([
-            'email' => 'required|email' ,
-            'password' => 'required' ,
-        ]);
-
-        //---- Attempt to login the user ----//
-        if(Auth::attempt($request->only('email' , 'password'))){
-            return redirect()->route('home');
-        }else{
-            return redirect()->back()->with('error' , 'Inavalid credentails');
-        }
-
     }
 
     //**//**//  ( LOGOUT )  //**//**//

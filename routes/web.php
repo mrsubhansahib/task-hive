@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WorkspaceController;
 use App\Models\User;
 
 //**//**// ( GUEST ) //**//**//
@@ -32,16 +33,6 @@ Route::middleware('auth')->group(function () {
         //----  ( CREATE )  ----//
         Route::get('/account' , 'create')->name('user.account');
         Route::post('/account', 'store');
-        //---- ( READ ) ----//
-        Route::get('/user-form' , 'read')->name('user.form');
-        //---- ( UPDATE ) ----//
-        Route::get('/user-update/{id}' , 'edit')->name('user.update');
-        Route::post('/user-update/{id}' , 'update')->name('user.update');
-        //---- ( DELETE ) ----//
-        Route::get('/user-destroy/{id}' , 'delete')->name('user.destroy');
-        //----  ( USER-LOGIN )  ----//
-        Route::get('/user-login' , 'createUser')->name('user.login');
-        Route::post('/user-login' , 'storeUser');
         //----  ( LOGOUT )  ----//
         Route::get('/logout', 'logout')->name('user.logout');
     });
@@ -55,6 +46,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/change-password' , 'confirmPassword');
     });
 
+    //---- ( WORKSPACE ) ----//
+    Route::controller(WorkspaceController::class)->group(function () {
+        Route::get('/workspace' , 'create')->name('workspace.create');
+        Route::get('/edit-workspace' , 'edit')->name('workspace.edit');
+        Route::post('/edit-workspace' , 'update');
+    });
 
 Route::get('/user-profile' , function(){
     return view('pages.auth.user-profile');

@@ -49,7 +49,7 @@ class AuthController extends Controller
         return view('pages.auth.login');
     }
 
-    public function storeUser(Request $request)
+   /* public function storeUser(Request $request)
     {
         //---- Validate the request ----//
         $request->validate([
@@ -59,10 +59,33 @@ class AuthController extends Controller
 
         //---- Attempt to login the user ----//
         if(Auth::attempt($request->only('email' , 'password'))){
-            return redirect()->route('home');
+            return redirect('/workspace');
         }else{
             return redirect()->back()->with('error' , 'Inavalid credentails');
         }
 
+    }*/
+    public function storeUser(Request $request)
+    {
+        //---- Validate the request ----//
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        //---- Attempt to login the user ----//
+        if (Auth::attempt($request->only('email', 'password'))) {
+            $user = Auth::user();
+
+            //---- Ensure workspace exists ----//
+            $workspace = $user->workspaces()->firstOrCreate([
+                'title' => $user->name . "'s Workspace",
+                'description' => 'Default workspace',
+                'visibility' => 'private',
+            ]);
+
+            return redirect('/workspace')->with('workspace', $workspace);
+        }
+        return redirect()->back()->with('error', 'Invalid credentials');
     }
 }

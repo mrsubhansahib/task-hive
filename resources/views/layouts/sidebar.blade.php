@@ -32,11 +32,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('/user-login')}}">
-                            User Login
-                        </a>
-                    </li>
-                    <li>
                         <a href="{{url('/account')}}">
                            New Account
                         </a>

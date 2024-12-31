@@ -17,6 +17,10 @@ class Board extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function workspace()
+    {
+        return $this->belongsTo(Workspace::class);
+    }
     public function tabs()
     {
         return $this->hasMany(Tab::class);

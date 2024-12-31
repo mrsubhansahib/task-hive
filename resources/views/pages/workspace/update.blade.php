@@ -8,11 +8,11 @@
             @csrf
                 <div class="mb-3">
                     <label class="form-label mb-14">Title</label>
-                    <input type="text" value="{{ old('title', $workspace->title ?? '') }}" name="title" class="form-control" id="title" placeholder="Title">
+                    <input type="text" value="{{ old('title' , $workspace->title ?? '')}}" name="title" class="form-control" id="title" placeholder="Title">
                 </div>
                 <div class="mb-3 mt-24">
                     <label for="description" class="form-label mb-14">Description</label>
-                    <input type="text" value="{{ old('description', $workspace->title ?? '') }}" name="description" class="form-control" id="description" placeholder="Description">
+                    <input type="text" value="{{ old('description', $workspace->description ?? '') }}" name="description" class="form-control" id="description" placeholder="Description">
                 </div>
                 <div class="mb-3 mt-24">
                     <label for="visibility" class="form-label mb-14">Visibility</label>

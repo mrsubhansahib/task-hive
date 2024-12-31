@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
     //---- ( WORKSPACE ) ----//
     Route::controller(WorkspaceController::class)->group(function () {
         Route::get('/workspace' , 'create')->name('workspace.create');
+        Route::post('/workspace' , 'store');
         Route::get('/edit-workspace' , 'edit')->name('workspace.edit');
         Route::post('/edit-workspace' , 'update');
     });

@@ -9,8 +9,10 @@ use App\Models\Workspace;
 class WorkspaceController extends Controller
 {
     public function create(){
+        $workspace = Auth::user()->workspaces()->first();
         return view ('pages.workspace.create');
     }
+
     public function edit()
     {
         $workspace = Auth::user()->workspaces()->first();
@@ -20,8 +22,8 @@ class WorkspaceController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required|max:500',
+            'title' => 'required|max:30',
+            'description' => 'required|max:100',
             'visibility' => 'required|in:public,private',
         ]);
 

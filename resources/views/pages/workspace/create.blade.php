@@ -6,6 +6,8 @@
     <div class="main-content">
         <div class="col-12">
             <div class="box">
+                <form action="{{ url('/workspace') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                 <div class="box-body d-flex align-items-start ms-4">
                     <img class="rounded" src="./images/workspace/default.img.jpg" width="80" alt="Profile Image">
                     <div class="ms-4 mt-5">
@@ -20,6 +22,7 @@
                 <div class="box-footer ms-4 mt-5">
                     <h7>{{ $workspace->description ?? 'This is your workspace.' }}</h7>
                 </div>
+                </form>
             </div>
         </div>
     </div>

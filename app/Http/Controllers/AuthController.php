@@ -32,7 +32,6 @@ class AuthController extends Controller
             'email' => $request->email,
             'job_title' => $request->job_title,
             'password' => Hash::make($request->password),
-           // 'image'=>'profile_image.jpg',
         ]);
 
         //---- Check if the user was created ----//
